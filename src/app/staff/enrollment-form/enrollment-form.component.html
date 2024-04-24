@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="col-sm-8">
+    <h2>Enroll Staff</h2>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <th scope="col">StaffName</th>
+        <th scope="col">StaffEnrollNo</th>
+        <th scope="col">StaffContact</th>
+        <th scope="col">StaffPosition</th>
+        <th scope="col">StaffEmail</th>
+
+      </tr>
+
+      <tr *ngFor="let staffs of staffList">
+        <td>{{staffs.staffName}}</td>
+        <td>{{staffs.staffEnrollNo}}</td>
+        <td>{{staffs.staffContact}}</td>
+        <td>{{staffs.staffPosition}}</td>
+        <td>{{staffs.email}}</td>
+
+        <td><button class="btn btn-outline-danger" (click)="onDelete(1)">Delete</button></td>
+        <td><button class="btn btn-outline-success" (click)="onUpdate(1)">Update</button></td>
+
+
+
+        <!--        <td><button class="btn btn-outline-danger"  (click)="onDelete()">Delete</button></td>-->
+
+      </tr>
+
+      </thead>
+    </table>
+    <form #enrollmentForm="ngForm"  (ngSubmit)="Add()">
+      <div class="form-group">
+        <label for="staffName">StaffName</label>
+        <input type="text" class="form-control" id="staffName" name="staffName" [(ngModel)]="newStaff.staffName">
+      </div>
+      <div class="form-group">
+        <label for="enrollNo">EnrollNo</label>
+        <input type="text" class="form-control" id="enrollNo" name="id" [(ngModel)]="newStaff.staffEnrollNo">
+      </div>
+
+      <div class="form-group">
+        <label for="staffContact">StaffContact</label>
+        <input type="text" class="form-control" id="staffContact" name="staffContact" [(ngModel)]="newStaff.staffContact">
+      </div>
+
+      <div class="form-group">
+        <label for="staffPosition">StaffPosition</label>
+        <input type="text" class="form-control" id="staffPosition" name="staffPosition" [(ngModel)]="newStaff.staffPosition">
+      </div>
+
+
+      <div class="form-group">
+        <label for="email">StaffEmail</label>
+        <input type="email" class="form-control" id="email" name="staffEmail" [(ngModel)]="newStaff.email" required email >
+      </div>
+                    <button class="btn btn-success" type="submit"  [disabled]="!enrollmentForm.valid">Submit</button>
+
+
+
+            </form>
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+

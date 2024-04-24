@@ -1,0 +1,95 @@
+<div class="container" >
+  <div class="col-sm-12">
+    <h3>StudentEnrollment Table</h3>
+    <table class="table table-bordered" >
+      <thead>
+      <tr>
+        <th scope="col">studentName</th>
+        <th scope="col">studentId</th>
+        <th scope="col">studentGender</th>
+        <th scope="col">age</th>
+        <th scope="col">presentAddress</th>
+        <th scope="col">permanentAddress</th>
+        <th scope="col">emergencyContact</th>
+
+
+
+      </tr>
+
+      <tr *ngFor="let students of studentList">
+        <td>{{students.studentName}}</td>
+        <td>{{students.studentId}}</td>
+        <td>{{students.studentGender}}</td>
+        <td>{{students.age}}</td>
+        <td>{{students.presentAddress}}</td>
+        <td>{{students.permanentAddress}}</td>
+        <td>{{students.emergencyContact}}</td>
+
+        <td><button class="btn btn-outline-danger" (click)="onDelete(0)">Delete</button></td>
+        <td><button class="btn btn-outline-success" (click)="onUpdate(0)">Update</button></td>
+
+      </tr>
+      </thead>
+
+    </table>
+
+  </div>
+
+</div>
+
+
+<div class="container">
+  <div class="col-xs-12">
+    <div class="row">
+    <h3>EnrollStudent</h3>
+    <form  #enrollmentForm="ngForm" (ngSubmit)="add()">
+      <div class="form-group">
+        <label for="studentName">StudentName</label>
+        <input type="text" class="form-control" id="studentName" name="studentName"  maxlength="40" [(ngModel)]="newStudent.studentName">
+
+      </div>
+      <div class="form-group">
+        <label for="studentId">StudentId</label>
+        <input type="text" class="form-control" id="studentId" name="studentId"  required [(ngModel)]="newStudent.studentId">
+      </div>
+
+      <div class="form-group">
+        <label for="studentGender">StudentGender</label>
+        <input type="text" class="form-control" id="studentGender" name="studentGender"   minlength="4" [(ngModel)]="newStudent.studentGender">
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" class="form-control" id="age" name="age"  required [(ngModel)]="newStudent.age">
+      </div>
+
+
+      <div class="form-group">
+        <label for="presentAddress">PresentAddress</label>
+        <input type="text" class="form-control" id="presentAddress" name="presentAddress"  minlength="10" [(ngModel)]="newStudent.presentAddress">
+      </div>
+
+      <div class="form-group">
+        <label for="permanentAddress">PermanentAddress</label>
+        <input type="text" class="form-control" id="permanentAddress" name="permanentAddress" minlength="10" [(ngModel)]="newStudent.permanentAddress">
+      </div>
+
+      <div class="form-group">
+        <label for="emergencyContact">EmergencyContact</label>
+        <input type="text" class="form-control" id="emergencyContact" name="emergencyContact"   minlength="5"  [(ngModel)]="newStudent.emergencyContact">
+      </div>
+
+
+
+
+      <button class="btn btn-success" type="submit"  [disabled]="enrollmentForm.valid">Submit</button>
+
+<!--      <p>Student Enroll Successfully!</p>-->
+    </form>
+
+
+    </div>
+
+</div>
+</div>
+
